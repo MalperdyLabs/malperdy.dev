@@ -1,0 +1,20 @@
+---
+layout: base.njk
+title: Notes
+---
+<div class="prose">
+  <h1>Notes</h1>
+  <p>
+    Working notes from the lab — design decisions, things noticed, the
+    occasional argument with ourselves. Irregular by nature.
+  </p>
+</div>
+
+<ul class="note-list">
+  {% for note in collections.notes %}
+  <li>
+    <a href="{{ note.url }}">{{ note.data.title }}</a>
+    <time datetime="{{ note.date | isoDate }}">{{ note.date | readableDate }}</time>
+  </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,197 @@
+/* Malperdy Labs — one stylesheet, no framework.
+   Dark, typographic, restrained. One warm accent (fox amber).
+   The aesthetic is the thesis: small universe, strict rules, internal beauty. */
+
+:root {
+  --bg:        #0e0f12;   /* near-black, faintly warm */
+  --bg-soft:   #16181d;   /* cards / raised blocks */
+  --ink:       #e7e3da;   /* warm off-white */
+  --ink-dim:   #9b968c;   /* muted prose, captions */
+  --ink-faint: #6a665e;   /* footnotes, borders-as-text */
+  --amber:     #d98a4e;   /* the fox — single accent */
+  --rule:      #25272e;   /* hairlines */
+  --measure:   66ch;      /* reading width */
+  --serif: Iowan Old Style, "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  left: 1rem; top: 1rem;
+  background: var(--amber); color: #111;
+  padding: .5rem .75rem; border-radius: 4px; z-index: 10;
+}
+
+/* ---- header ---- */
+.site-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  max-width: 60rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 1.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+.wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .55rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.wordmark .mark { font-size: 1.15rem; transform: translateY(1px); }
+.wordmark .name {
+  font-family: var(--mono);
+  font-weight: 600;
+  letter-spacing: .02em;
+  font-size: 1.02rem;
+}
+.site-head nav { display: flex; gap: 1.35rem; }
+.site-head nav a {
+  font-family: var(--mono);
+  font-size: .82rem;
+  letter-spacing: .03em;
+  text-transform: lowercase;
+  color: var(--ink-dim);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+.site-head nav a:hover { color: var(--amber); border-bottom-color: var(--amber); }
+
+/* ---- main ---- */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* ---- hero (home) ---- */
+.hero { max-width: var(--measure); }
+.hero .lede {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  margin: 0 0 1.5rem;
+}
+.hero .lede .amber { color: var(--amber); }
+.hero p { color: var(--ink-dim); }
+.hero .sub { font-family: var(--mono); font-size: .8rem; color: var(--ink-faint); letter-spacing: .04em; text-transform: uppercase; margin-bottom: .75rem; }
+
+/* ---- prose ---- */
+.prose { max-width: var(--measure); }
+.prose > * + * { margin-top: 1.15rem; }
+.prose h2 {
+  font-family: var(--mono);
+  font-size: .85rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-top: 2.75rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid var(--rule);
+}
+.prose h3 { font-size: 1.2rem; margin-top: 2rem; }
+.prose a { color: var(--ink); text-decoration-color: var(--amber); text-underline-offset: 3px; }
+.prose a:hover { color: var(--amber); }
+.prose code {
+  font-family: var(--mono);
+  font-size: .85em;
+  background: var(--bg-soft);
+  padding: .1em .35em;
+  border-radius: 3px;
+}
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--amber);
+  color: var(--ink-dim);
+  font-style: italic;
+}
+.prose hr { border: none; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+
+/* ---- projects ---- */
+.projects { display: grid; gap: 1.25rem; max-width: var(--measure); margin-top: 2rem; }
+.project {
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 1.4rem 1.5rem;
+}
+.project h3 {
+  margin: 0 0 .15rem;
+  font-size: 1.15rem;
+  display: flex; align-items: baseline; gap: .6rem;
+}
+.project h3 .tag {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--amber);
+  border: 1px solid var(--rule);
+  padding: .1rem .4rem;
+  border-radius: 999px;
+}
+.project p { margin: .5rem 0 0; color: var(--ink-dim); }
+
+/* ---- notes index ---- */
+.note-list { list-style: none; padding: 0; max-width: var(--measure); }
+.note-list li { padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+.note-list a { color: var(--ink); text-decoration: none; font-size: 1.15rem; }
+.note-list a:hover { color: var(--amber); }
+.note-list time { display: block; font-family: var(--mono); font-size: .75rem; color: var(--ink-faint); letter-spacing: .04em; }
+
+/* ---- single note ---- */
+.note-head { max-width: var(--measure); margin-bottom: 2rem; }
+.note-head .kicker { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--amber); margin: 0; }
+.note-head h1 { font-size: 2rem; line-height: 1.2; margin: .3rem 0 .5rem; }
+.note-head time { font-family: var(--mono); font-size: .78rem; color: var(--ink-faint); }
+.note .back { margin-top: 3rem; font-family: var(--mono); font-size: .85rem; }
+.note .back a { color: var(--ink-dim); text-decoration: none; }
+.note .back a:hover { color: var(--amber); }
+
+h1 { font-size: 2.2rem; line-height: 1.15; letter-spacing: -0.01em; }
+
+/* ---- footer ---- */
+.site-foot {
+  max-width: 60rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  border-top: 1px solid var(--rule);
+  font-size: .85rem;
+  color: var(--ink-dim);
+}
+.site-foot p { margin: .25rem 0; }
+.site-foot .dim { color: var(--ink-faint); font-style: italic; }
+
+@media (max-width: 34rem) {
+  body { font-size: 17px; }
+  .hero .lede { font-size: 1.35rem; }
+}

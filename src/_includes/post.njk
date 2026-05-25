@@ -1,0 +1,14 @@
+---
+layout: base.njk
+---
+<article class="note">
+  <header class="note-head">
+    <p class="kicker">Notes</p>
+    <h1>{{ title }}</h1>
+    <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time>
+  </header>
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+  <p class="back"><a href="/notes/">← all notes</a></p>
+</article>

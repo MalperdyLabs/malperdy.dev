@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🦊</text></svg>">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-head">
+    <a class="wordmark" href="/">
+      <span class="mark" aria-hidden="true">🦊</span>
+      <span class="name">Malperdy&nbsp;Labs</span>
+    </a>
+    <nav>
+      <a href="/projects/">Projects</a>
+      <a href="/notes/">Notes</a>
+      <a href="{{ site.repo }}" rel="noopener">Code</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-foot">
+    <p>{{ site.name }} — an independent research endeavor. <a href="mailto:{{ site.contact }}">{{ site.contact }}</a></p>
+    <p class="dim">Malperdy: the fox's stronghold. The den a thing comes home to.</p>
+  </footer>
+</body>
+</html>
