@@ -12,6 +12,9 @@ module.exports = function (eleventyConfig) {
   // Pass CSS and any static assets straight through.
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  // Custom-domain marker — lands at _site/CNAME so the apex domain
+  // survives every redeploy (Actions deploys replace the whole output).
+  eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
 
   // A "notes" collection — every markdown file under src/notes/, newest first.
   eleventyConfig.addCollection("notes", (collectionApi) =>
