@@ -62,9 +62,12 @@ inactive in the experiments reported here.
 
 **Actuation & homeostasis.** A learned motor projection maps `h` to turn-rate
 and forward velocity. The world couples action to survival thermodynamically:
-orienting and approaching the light source increases harvest, raising charge;
-moving away starves the creature. Survival requires both *orient* and
-*approach*.
+orienting toward the light source increases harvest, raising charge; orienting
+away lets it starve. At the world parameters used here, orientation dominates
+harvest and translation proved metabolically near-redundant — a creature that
+merely faces the source stays fed without approaching. Making approach itself
+load-bearing requires a steeper intensity falloff; we treat that as a deliberate
+next step rather than a property of the present world.
 
 **Substrate.** The CfC forward pass was ported to the ESP32-S3 and validated
 bit-faithful to the reference implementation early in development
